@@ -1,0 +1,45 @@
+@use "../abstracts/" as *;
+
+.feature {
+  &__card {
+    background-color: rgb($color-grey-dark, 0.8);
+    color: $color-white;
+    padding: 2.8rem;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: $shadow-light;
+
+    @include responsive(tabletLandscape) {
+      padding: 2.2rem;
+    }
+
+    &:hover {
+      transform: translateY(-1.2rem);
+      background-color: $color-grey-dark;
+      box-shadow: $shadow-dark;
+
+      .feature__icon {
+        color: $color-secondary;
+      }
+    }
+  }
+
+  &__icon {
+    font-size: 8rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s;
+  }
+
+  &__heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.8rem;
+  }
+
+  &__text {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+}

@@ -1,0 +1,78 @@
+@use "../abstracts" as *;
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+
+  @include responsive(tabletLandscape) {
+    max-width: 110rem;
+  }
+
+  @include responsive(tabletPortrait) {
+    max-width: 90rem;
+  }
+
+  @include responsive(mobile) {
+    min-width: 30rem;
+    max-width: 60rem;
+  }
+}
+
+.grid {
+  display: grid;
+  row-gap: 10rem;
+  column-gap: 5rem;
+
+  &:not(:last-child) {
+    margin-bottom: 15rem;
+  }
+
+  &--2-cols {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include responsive(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+
+    @include responsive(tabletPortrait) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include responsive(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--4-cols {
+    grid-template-columns: repeat(4, 1fr);
+
+    @include responsive(tabletPortrait) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include responsive(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--5-cols {
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 8rem;
+
+    @include responsive(tabletPortrait) {
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: 6rem;
+    }
+
+    @include responsive(mobile) {
+      grid-template-columns: repeat(6, 1fr);
+      row-gap: 4rem;
+      column-gap: 6rem;
+    }
+  }
+}

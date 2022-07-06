@@ -1,0 +1,60 @@
+@use "../abstracts/" as *;
+
+.step {
+  &__description {
+    font-size: 2rem;
+    font-weight: 300;
+    color: $color-grey-dark;
+    line-height: 1.5;
+    text-align: justify;
+
+    @include responsive(tabletPortrait) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &--2 {
+      @include responsive(mobile) {
+        grid-row: 3;
+      }
+    }
+
+    &--iphone {
+      width: 40%;
+      filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 1rem 1.5rem);
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      z-index: -1;
+      filter: blur(5rem);
+      width: 50%;
+      padding-bottom: 50%;
+    }
+
+    &--1::before {
+      background-color: #00e0ff;
+    }
+
+    &--2::before {
+      background-color: #ff0032;
+    }
+
+    &--3::before {
+      background-color: #00ffd1;
+    }
+  }
+}

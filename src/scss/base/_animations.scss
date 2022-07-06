@@ -1,0 +1,31 @@
+/** @format */
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+
+  &.reveal {
+    opacity: 1;
+  }
+}
+
+.slide {
+  &__from--left {
+    transform: translateX(-5rem);
+  }
+
+  &__from--right {
+    transform: translateX(5rem);
+  }
+
+  &__from--left,
+  &__from--right {
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+
+    &.reveal {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}

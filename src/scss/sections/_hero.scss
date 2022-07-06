@@ -1,0 +1,86 @@
+@use "../abstracts/" as *;
+
+.hero {
+  max-width: 140rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10rem;
+  align-items: center;
+  padding: 0 2rem;
+
+  @include responsive(tabletLandscape) {
+    max-width: 120rem;
+  }
+
+  @include responsive(tabletPortrait) {
+    grid-template-columns: 1fr;
+    grid-gap: 6rem;
+    text-align: center;
+    padding: 0 5rem;
+  }
+
+  &__description {
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 5rem;
+
+    @include responsive(tabletLandscape) {
+      font-size: clamp(2rem, 5vw, 2.2rem);
+    }
+  }
+
+  &__btn-container {
+    display: flex;
+    gap: 3rem;
+
+    @include responsive(tabletPortrait) {
+      justify-content: center;
+    }
+
+    @include responsive(mobile) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4rem;
+    }
+  }
+
+  &__customer {
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    @include responsive(tabletPortrait) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--images {
+      display: flex;
+
+      img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        border: 2px solid $color-white;
+
+        &:not(:last-child) {
+          margin-right: -1.2rem;
+        }
+      }
+    }
+
+    &--happy {
+      font-size: 1.8rem;
+      font-weight: 600;
+
+      span {
+        @include brand-gradient($gradient-text: true);
+      }
+    }
+  }
+}

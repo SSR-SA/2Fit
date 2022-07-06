@@ -1,0 +1,91 @@
+@use "../abstracts" as *;
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    text-decoration: none;
+    padding: 1.4rem 4rem;
+    font-size: 2rem;
+    border-radius: 0.4rem;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  &__hero {
+    &--primary {
+      @include brand-gradient($gradient-text: false);
+      color: $color-white;
+    }
+
+    &--secondary {
+      color: $color-grey-dark;
+      border: 1px solid $color-secondary;
+    }
+  }
+
+  &__header {
+    border: none;
+    padding: 0.8rem 2rem !important;
+    @include brand-gradient($gradient-text: false);
+    color: $color-white;
+  }
+
+  &__product {
+    color: $color-white;
+    @include brand-gradient($gradient-text: false);
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    margin-top: 2rem;
+    border: none;
+    padding: 0.8rem 6rem !important;
+    border-radius: 0 !important;
+  }
+
+  &__form {
+    border: none;
+    width: 80%;
+    @include brand-gradient($gradient-text: false);
+    color: $color-white;
+
+    @include responsive(tabletPortrait) {
+      width: 100%;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: $shadow-light;
+  }
+
+  &:active {
+    transform: translateY(0.1rem);
+    box-shadow: $shadow-light;
+  }
+}
+
+.read-more {
+  &:link,
+  &:visited {
+    font-size: 2rem;
+    color: $color-tertiary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 0.1rem solid $color-tertiary;
+    padding: 0.3rem;
+    transition: all 0.2s;
+    font-weight: 600;
+  }
+
+  &:hover {
+    background-color: $color-tertiary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-0.2rem);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+  }
+}

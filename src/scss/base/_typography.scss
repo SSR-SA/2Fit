@@ -1,0 +1,65 @@
+@use "../abstracts" as *;
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  color: #222222;
+}
+
+.heading-primary {
+  font-size: 7rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: $color-grey-dark;
+  margin-bottom: 3rem;
+
+  &--brand {
+    @include brand-gradient($gradient-text: true);
+  }
+
+  @include responsive(tabletLandscape) {
+    font-size: clamp(4.5rem, 5vw, 6rem);
+  }
+}
+
+.heading-secondary {
+  font-size: 4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  /* TEXT GRADIENT */
+  @include brand-gradient($gradient-text: true);
+  margin-bottom: 1.2rem;
+
+  @include responsive(tabletPortrait) {
+    font-size: 3.5rem;
+  }
+
+  @include responsive(mobile) {
+    font-size: 2.5rem;
+    line-height: 1.4;
+  }
+}
+
+.heading-tertiary {
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+
+  @include responsive(tabletPortrait) {
+    font-size: 2.8rem;
+  }
+}
+
+.heading-description {
+  font-size: 2rem;
+  font-weight: 300;
+  color: $color-grey-light;
+  margin-bottom: 8rem;
+  line-height: 1.4;
+
+  @include responsive(mobile) {
+    font-size: 1.6rem;
+    margin-bottom: 4rem;
+  }
+}

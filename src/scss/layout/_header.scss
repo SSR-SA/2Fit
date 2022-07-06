@@ -1,0 +1,136 @@
+/** @format */
+
+@use "../abstracts" as *;
+
+.header {
+  // background-color: rgba($color-white, 0.5);
+  // backdrop-filter: blur(4rem);
+  background-color: $color-white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 5rem;
+  position: fixed;
+  height: 8rem;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+
+  @include responsive(tabletLandscape) {
+    padding: 0 3rem;
+  }
+
+  &__logo {
+    &:link,
+    &:visited {
+      cursor: pointer;
+    }
+
+    &--img {
+      width: 12rem;
+      height: auto;
+    }
+  }
+
+  &__nav {
+    @include responsive(tabletPortrait) {
+      background-color: rgba($color-grey-dark, 0.9);
+      backdrop-filter: blur(4rem);
+      position: absolute;
+      top: 8rem;
+      bottom: 100%;
+      left: 0;
+      width: 100%;
+      height: 95vh;
+      transform: translateY(-120%);
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition: all 0.5s;
+
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+
+      &--open {
+        opacity: 1;
+        pointer-events: visible;
+        visibility: visible;
+        transform: translateY(0%);
+      }
+    }
+
+    &--list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+
+      @include responsive(tabletPortrait) {
+        flex-direction: column;
+        gap: 8rem;
+      }
+    }
+
+    &--link {
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: inherit;
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        margin-right: 4rem;
+        transition: all 0.3s;
+
+        @include responsive(tabletPortrait) {
+          color: $color-white;
+          font-size: 2.4rem;
+          margin: 0 auto;
+        }
+      }
+
+      &:hover,
+      &:active {
+        color: $color-secondary;
+      }
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @include responsive(tabletPortrait) {
+      display: inline-block;
+
+      &--bar {
+        width: 30px;
+        height: 0.3rem;
+        background-color: $color-grey-dark;
+        margin: 5px;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        z-index: 100;
+      }
+    }
+  }
+}
+
+// Hamburger Animation
+.burgerButton-open {
+  .header__burger--bar {
+    &:nth-child(1) {
+      transform: translateY(0.95rem) rotate(225deg);
+    }
+
+    &:nth-child(3) {
+      transform: translateY(-0.95rem) rotate(-225deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+  }
+}

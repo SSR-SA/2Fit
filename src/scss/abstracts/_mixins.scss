@@ -1,0 +1,62 @@
+@use "./variables" as *;
+
+@mixin brand-gradient($gradient-text: true) {
+  @if $gradient-text {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-primary 0%,
+      $color-secondary 50%,
+      $color-tertiary 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } @else {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-primary 0%,
+      $color-secondary 50%,
+      $color-tertiary 100%
+    );
+  }
+}
+
+// MEDIA QUERY BREAKPOINTS
+/*
+  0 - 600px -> mobile
+  600px - 960px -> tablet-portrait
+  960px - 1200px -> tablet-landscape
+  1200px - 1800px -> desktop
+  1800px + -> desktop-large
+
+  $breakpoint = {
+    mobile: 0,
+    tabletPortrait: 600,
+    tabletLandscape: 960,
+    desktop: 1200,
+    desktopLarge: 1800
+  }
+*/
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == "mobile" {
+    @media only screen and (max-width: 37.5em) {
+      //600px
+      @content;
+    }
+  } @else if $breakpoint == "tabletPortrait" {
+    @media only screen and (max-width: 60em) {
+      //960px
+      @content;
+    }
+  } @else if $breakpoint == "tabletLandscape" {
+    @media only screen and (max-width: 75em) {
+      //1200px
+      @content;
+    }
+  } @else if $breakpoint == "desktopLarge" {
+    @media only screen and (min-width: 112.5em) {
+      //1800px
+      @content;
+    }
+  }
+}

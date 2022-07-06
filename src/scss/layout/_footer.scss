@@ -1,0 +1,103 @@
+@use "../abstracts/" as *;
+
+.footer {
+  padding: 15rem 0;
+  border-top: 0.1rem solid $color-grey-light;
+
+  @include responsive(tabletPortrait) {
+    margin: 0 auto;
+  }
+
+  &__logo-col {
+    display: flex;
+    flex-direction: column;
+
+    @include responsive(tabletPortrait) {
+      grid-column: span 3;
+    }
+  }
+
+  &__address-col {
+    @include responsive(tabletPortrait) {
+      grid-column: span 3;
+    }
+  }
+
+  &__logo--img {
+    width: 10rem;
+    display: block;
+    margin-bottom: 3rem;
+  }
+
+  &__social-links {
+    list-style: none;
+    display: flex;
+    gap: 2.8rem;
+  }
+
+  &__social-icon {
+    font-size: 2.4rem;
+  }
+
+  &__copyright {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: $color-grey-light;
+    margin-top: auto;
+  }
+
+  &__contact {
+    font-style: normal;
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
+
+  &__address {
+    margin-bottom: 5rem;
+    color: $color-grey-light;
+  }
+
+  &__heading {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+
+    @include responsive(mobile) {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+  }
+
+  &__nav-col {
+    @include responsive(tabletPortrait) {
+      grid-row: 1;
+      grid-column: span 2;
+      margin-bottom: 3.2rem;
+    }
+  }
+
+  &__nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+
+    &--link:link,
+    &--link:visited {
+      text-decoration: none;
+      color: $color-grey-light;
+      font-size: 1.6rem;
+      font-weight: 400;
+      transition: all 0.2s;
+
+      @include responsive(mobile) {
+        font-size: 1.4rem;
+      }
+
+      &:hover,
+      &:active {
+        color: $color-tertiary;
+      }
+    }
+  }
+}

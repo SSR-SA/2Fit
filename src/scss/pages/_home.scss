@@ -1,0 +1,82 @@
+/** @format */
+
+@use "../abstracts" as *;
+
+.section-hero {
+  padding: 15rem 0;
+}
+
+.section-features {
+  padding: 15rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgb($color-primary, 0.85),
+      rgb($color-secondary, 0.85),
+      rgb($color-tertiary, 0.85)
+    ),
+    url("/assets/feature-section-small.jpg");
+  background-size: cover;
+  background-position: top;
+  /* clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%); */
+  transform: skewY(-4deg);
+
+  & > * {
+    transform: skewY(4deg);
+  }
+
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgb($color-primary, 0.85),
+        rgb($color-secondary, 0.85),
+        rgb($color-tertiary, 0.85)
+      ),
+      url("/assets/feature-section-large.jpg");
+  }
+
+  // @media (min-width: 125em) {
+  //   background-image: linear-gradient(
+  //       to right bottom,
+  //       rgb(pink, 0.85),
+  //       rgb(green, 0.85),
+  //       rgb(blue, 0.85)
+  //     ),
+  //     url("/assets/feature-section-large.jpg");
+  // }
+}
+
+.section-steps {
+  padding: 15rem 0 10rem;
+
+  @include responsive(mobile) {
+    padding: 10rem 0 5rem;
+  }
+}
+
+.section-products {
+  padding: 10rem 0 15rem;
+
+  @include responsive(mobile) {
+    padding: 5rem 0 15rem;
+  }
+}
+
+.section-gallery {
+  margin-bottom: 10rem;
+}
+
+.section-testimonials {
+  margin-bottom: 5rem;
+
+  @include responsive(mobile) {
+    margin-bottom: 2rem;
+  }
+}
+
+.section-sign-up {
+  padding: 10rem 0;
+
+  @include responsive(mobile) {
+    padding: 10rem 0;
+  }
+}
